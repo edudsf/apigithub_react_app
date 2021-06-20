@@ -1,11 +1,11 @@
-import { Container } from '@/styles/global'
+import { MainContainer } from '@/styles/global'
 import Router from './router/routes'
 
 function App() {
   return (
-    <Container>
+    <MainContainer>
       <Router />
-    </Container>
+    </MainContainer>
   )
 }
 
