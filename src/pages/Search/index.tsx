@@ -1,12 +1,12 @@
-import Github from '@/assets/images/Logo.svg'
-import { Logo } from './style'
+import { Logo, Container } from './style'
 
 const Search = () => {
   return (
-    <>
+    <Container>
       <Logo />
-      <h1>teste</h1>
-    </>
+      <input type="text" placeholder="Usuário" />
+      <button>ENTRAR<span>&#129122;</span></button>
+    </Container>
   )
 }
 
