@@ -24,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const MainContainer = styled.div`
+  overflow-y: auto;
   width: 375px;
   height: 812px;
   background: #292929;

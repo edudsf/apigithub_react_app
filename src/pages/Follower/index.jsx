@@ -4,31 +4,25 @@ import { H1, P, Span } from '@/styles/global';
 import Description from '@/components/Profile/Description'
 import Perfil from '@/components/Profile/Perfil'
 import { usePath } from '@/hooks/use_path'
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '@/contexts/auth';
-import { GettersContext } from '@/contexts/getters';
+import { useLocation } from 'react-router-dom';
 import Loading from '@/components/Loading'
 
-const Home = () => {
-
-  const { logout, user, setUser } = useContext(AuthContext)
-  const { getRepos, getFollowers, loading, setLoading } = useContext(GettersContext)
+const Follower = () => {
 
   const go = usePath()
+  const location = useLocation()
+  const { makeLogin, loading, setLoading } = useContext(AuthContext)
+  const user = location.state
+  console.log(user);
 
-  const execRepos = () => {
+  const save = () => {
     setLoading(true)
-    getRepos(user.login, () => {
-      go.repositories()
+    makeLogin(user.login, (res) => {
       setLoading(false)
-    })
-  }
-
-  const execFllowers = () => {
-    setLoading(true)
-    getFollowers(user.login, () => {
-      go.followers()
-      setLoading(false)
+      go.home()
+      console.log(res)
     })
   }
 
@@ -41,16 +35,16 @@ const Home = () => {
         <c.Container>
           <ch.Header>
             <div>
-              <Span>&#129128;</Span>
-              <button onClick={logout}>Sair<span>*</span></button>
+              <Span onClick={() => go.back()}>&#129128;</Span>
+              <button onClick={save}>Sair<span>*</span></button>
             </div>
             <img src={user.avatar_url} alt="" title="" />
           </ch.Header>
           <Perfil user={user} />
           <c.InfoMenu>
-            <li><Span onClick={execFllowers}>{user.followers}</Span><Span>Seguidores</Span></li>
+            <li><Span>{user.followers}</Span><Span>Seguidores</Span></li>
             <li><Span>{user.following}</Span><Span>Seguindo</Span></li>
-            <li><Span onClick={execRepos}>{user.public_repos}</Span><Span>Repos</Span></li>
+            <li><Span>{user.public_repos}</Span><Span>Repos</Span></li>
           </c.InfoMenu>
           <Description user={user} />
         </c.Container>
@@ -59,4 +53,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Follower
