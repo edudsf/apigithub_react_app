@@ -12,6 +12,7 @@ export const Header = styled.div`
     left: 15px;
   }
   & button {
+    cursor: pointer;
     font-size: 25px;
     background: inherit;
     color: #fff;

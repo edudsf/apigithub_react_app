@@ -19,6 +19,7 @@ export const Header = styled.div`
       color: #fff;
       background-color: inherit;
       font-size: 17px;
+      cursor: pointer;
     }
   }
   & img {

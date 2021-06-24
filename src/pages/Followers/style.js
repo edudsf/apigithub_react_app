@@ -12,6 +12,7 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #484848;
+  cursor: pointer;
   & > :first-child {
     padding-left: 30px;
   }

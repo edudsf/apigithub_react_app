@@ -32,7 +32,7 @@ const Followers = () => {
         <Loading />
         :
         <c.Container>
-          <SimpleHeader />
+          <SimpleHeader title="seguidores" count={follow.data.length} />
           {follow.data.map(item => {
             return (
             <c.Content onClick={() => getFollower(item.login)}>

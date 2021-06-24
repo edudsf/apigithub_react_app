@@ -35,8 +35,8 @@ const Follower = () => {
         <c.Container>
           <ch.Header>
             <div>
-              <Span onClick={() => go.back()}>&#129128;</Span>
-              <button onClick={save}>Sair<span>*</span></button>
+              <button onClick={() => go.back()}>&#129128;</button>
+              <button onClick={save}>Salvar</button>
             </div>
             <img src={user.avatar_url} alt="" title="" />
           </ch.Header>

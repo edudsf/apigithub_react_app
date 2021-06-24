@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import logout from '@/assets/images/logout.svg'
 
 export const Container = styled.div`
   display: flex;
@@ -20,6 +21,9 @@ export const InfoMenu = styled.ul`
     width: 33.33%;
     text-align: center;
     float: left;
+    &:not(:nth-of-type(2)){
+      cursor: pointer;
+    }
     & span {
       display: block;
     }
@@ -29,4 +33,9 @@ export const InfoMenu = styled.ul`
       line-height: 49px;
     }
   }
+`
+
+export const Logout = styled(logout)`
+  fill: #fff;
+  display: contents;
 `

@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { repos } from '@/services/api'
 import { GettersContext } from '@/contexts/getters';
 import { usePath } from '@/hooks/use_path';
+import { stringLimit } from "@/utils/string_limit"
 
 const Repositories = () => {
 
@@ -13,12 +14,12 @@ const Repositories = () => {
   return (
     <c.Container>
     {console.log(repos)}
-      <SimpleHeader />
+      <SimpleHeader title="repositórios" count={repos.data.length} />
       {
         repos.data.map(item => {
           return (
             <c.Content>
-              <H1>{item.name}</H1>
+              <H1>{stringLimit(item.name)}</H1>
               <P>{item.description}</P>
               <div>
                 <Span><c.Star /></Span><Span>{item.stargazers_count}</Span>

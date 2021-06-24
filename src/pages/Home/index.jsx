@@ -4,7 +4,7 @@ import { H1, P, Span } from '@/styles/global';
 import Description from '@/components/Profile/Description'
 import Perfil from '@/components/Profile/Perfil'
 import { usePath } from '@/hooks/use_path'
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '@/contexts/auth';
 import { GettersContext } from '@/contexts/getters';
 import Loading from '@/components/Loading'
@@ -41,8 +41,8 @@ const Home = () => {
         <c.Container>
           <ch.Header>
             <div>
-              <Span>&#129128;</Span>
-              <button onClick={logout}>Sair<span>*</span></button>
+              <Span>{user.login}</Span>
+              <button onClick={logout}><span>Sair</span></button>
             </div>
             <img src={user.avatar_url} alt="" title="" />
           </ch.Header>
